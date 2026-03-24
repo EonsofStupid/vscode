@@ -1,0 +1,37 @@
+{
+	"name": "devpulse-antigravity",
+	"displayName": "DevPulse Antigravity Hook",
+	"description": "Antigravity AI agent session launcher and IPC bridge",
+	"version": "1.0.0",
+	"publisher": "jesse-hall",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"extensionDependencies": [
+		"jesse-hall.devpulse-profile"
+	],
+	"activationEvents": [
+		"onCommand:devpulse.antigravity.launch"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "devpulse.antigravity.launch",
+				"title": "Launch Antigravity Session"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "DevPulse Antigravity",
+			"properties": {
+				"devpulse.antigravity.endpoint": {
+					"type": "string",
+					"default": "http://localhost:1520/ipc",
+					"description": "Antigravity API endpoint for RRO context"
+				}
+			}
+		}
+	}
+}

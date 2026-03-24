@@ -1,0 +1,30 @@
+{
+	"name": "theme-devpulse",
+	"displayName": "%displayName%",
+	"description": "%description%",
+	"version": "1.0.0",
+	"publisher": "jesse-hall",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"id": "DevPulse Dark",
+				"label": "%devpulseDarkLabel%",
+				"uiTheme": "vs-dark",
+				"path": "./themes/devpulse_dark.json"
+			},
+			{
+				"id": "DevPulse Vibrant",
+				"label": "%devpulseVibrantLabel%",
+				"uiTheme": "vs-dark",
+				"path": "./themes/devpulse_vibrant.json"
+			}
+		]
+	}
+}

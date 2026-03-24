@@ -1,0 +1,64 @@
+{
+	"name": "devpulse-hub",
+	"displayName": "DevPulse Hub",
+	"description": "DevPulse orchestration, status bar, and walkthrough",
+	"version": "1.0.0",
+	"publisher": "jesse-hall",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "devpulse.openHub",
+				"title": "Open DevPulse Hub"
+			}
+		],
+		"walkthroughs": [
+			{
+				"id": "devpulseWelcome",
+				"title": "Welcome to DevPulse",
+				"description": "Your dedicated vibe-coder IDE from RRFlow.ai.",
+				"steps": [
+					{
+						"id": "meetDevpulse",
+						"title": "1. Meet DevPulse",
+						"description": "Experience the ColdLight neuromorphic design tailored for pure focus.",
+						"media": {
+							"markdown": "welcome/meet.md"
+						}
+					},
+					{
+						"id": "connectDB",
+						"title": "2. Connect Your Databases",
+						"description": "Seamlessly hook into SurrealDB, libSQL, and DuckDB directly from the IDE.",
+						"media": {
+							"markdown": "welcome/db.md"
+						}
+					},
+					{
+						"id": "enableClyffy",
+						"title": "3. Enable Clyffy AI",
+						"description": "Learn real dev practices while you code with Clyffy's guided overlays.",
+						"media": {
+							"markdown": "welcome/clyffy.md"
+						}
+					},
+					{
+						"id": "launchAntigravity",
+						"title": "4. Launch Antigravity",
+						"description": "Link your AI agents with real-time workspace context powered by RRO.",
+						"media": {
+							"markdown": "welcome/antigravity.md"
+						}
+					}
+				]
+			}
+		]
+	}
+}

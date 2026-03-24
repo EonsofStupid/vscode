@@ -1,0 +1,23 @@
+{
+	"$schema": "vscode://schemas/color-theme",
+	"name": "DevPulse Vibrant",
+	"include": "./devpulse_dark.json",
+	"type": "dark",
+	"colors": {
+		"activityBarBadge.background": "#FF007A",
+		"activityBar.activeBorder": "#FF007A",
+		"button.background": "#FF007A",
+		"button.hoverBackground": "#FF3393",
+		"badge.background": "#FF007A",
+		"progressBar.background": "#FF007A",
+		"tab.activeBorderTop": "#FF007A",
+		"extensionButton.prominentBackground": "#FF007A",
+		"extensionButton.prominentHoverBackground": "#FF3393",
+		"focusBorder": "#00FFC4",
+		"textLink.foreground": "#00FFC4",
+		"textLink.activeForeground": "#66FFD9",
+		"pickerGroup.border": "#00FFC4",
+		"statusBarItem.prominentBackground": "#00E5FF",
+		"statusBarItem.prominentHoverBackground": "#33EFFF"
+	}
+}

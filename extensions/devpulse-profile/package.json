@@ -1,0 +1,28 @@
+{
+	"name": "devpulse-profile",
+	"displayName": "DevPulse Profile tracking",
+	"description": "Global dev profile tracking for RRFlow.ai ecosystem",
+	"version": "1.0.0",
+	"publisher": "jesse-hall",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "DevPulse Profile",
+			"properties": {
+				"devpulse.profile.enabled": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enable dev habit tracking for DevPulse"
+				}
+			}
+		}
+	}
+}
