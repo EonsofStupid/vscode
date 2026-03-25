@@ -1,0 +1,88 @@
+{
+	"$schema": "vscode://schemas/color-theme",
+	"name": "DevForge Teal",
+	"include": "../../theme-defaults/themes/dark_modern.json",
+	"type": "dark",
+	"colors": {
+		"activityBar.background": "#091F2C",
+		"statusBar.background": "#091F2C",
+		"statusBar.noFolderBackground": "#091F2C",
+		"statusBar.debuggingBackground": "#091F2C",
+
+		"sideBar.background": "#0F293E",
+		"panel.background": "#0F293E",
+		"editorGroupHeader.tabsBackground": "#0F293E",
+		"tab.inactiveBackground": "#0F293E",
+
+		"editor.background": "#13334C",
+		"tab.activeBackground": "#13334C",
+
+		"activityBarBadge.background": "#FFCE00",
+		"activityBar.activeBorder": "#FFCE00",
+		"button.background": "#FFCE00",
+		"button.hoverBackground": "#FFD700",
+		"button.foreground": "#000000",
+		"badge.background": "#FFCE00",
+		"badge.foreground": "#000000",
+		"progressBar.background": "#FFCE00",
+		"tab.activeBorderTop": "#FFCE00",
+		"extensionButton.prominentBackground": "#FFCE00",
+		"extensionButton.prominentHoverBackground": "#FFD700",
+		"extensionButton.prominentForeground": "#000000",
+
+		"focusBorder": "#7AA2F7",
+		"textLink.foreground": "#7AA2F7",
+		"textLink.activeForeground": "#BB9AF7",
+		"pickerGroup.border": "#FFCE00",
+
+		"statusBarItem.prominentBackground": "#F7768E",
+		"statusBarItem.prominentHoverBackground": "#FF8C9D",
+		"statusBarItem.errorBackground": "#F7768E",
+		"statusBarItem.warningBackground": "#FF9E64",
+
+		"titleBar.activeBackground": "#091F2C",
+		"titleBar.inactiveBackground": "#091F2C",
+
+		"list.activeSelectionBackground": "#13334C",
+		"list.inactiveSelectionBackground": "#0F293E",
+		"list.hoverBackground": "#13334C",
+		"list.focusBackground": "#13334C",
+
+		"terminal.background": "#0F293E",
+
+		"dropdown.background": "#0F293E",
+		"input.background": "#0F293E",
+		"widget.shadow": "#00000080"
+	},
+	"tokenColors": [
+		{
+			"scope": ["keyword", "storage", "storage.type"],
+			"settings": { "foreground": "#BB9AF7" }
+		},
+		{
+			"scope": ["string", "string punctuation.section.embedded source"],
+			"settings": { "foreground": "#9ECE6A" }
+		},
+		{
+			"scope": ["entity.name.function", "support.function"],
+			"settings": { "foreground": "#7AA2F7" }
+		},
+		{
+			"scope": ["constant", "constant.numeric", "support.constant"],
+			"settings": { "foreground": "#FF9E64" }
+		},
+		{
+			"scope": ["entity.name.tag", "support.class.component"],
+			"settings": { "foreground": "#F7768E" }
+		},
+		{
+			"scope": ["comment", "punctuation.definition.comment", "string.comment"],
+			"settings": { "foreground": "#565F89" }
+		},
+		{
+			"scope": ["variable.other", "variable.parameter"],
+			"settings": { "foreground": "#C0CAF5" }
+		}
+	],
+	"semanticHighlighting": true
+}

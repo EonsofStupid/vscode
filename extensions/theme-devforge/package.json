@@ -1,5 +1,5 @@
 {
-	"name": "theme-devpulse",
+	"name": "theme-devforge",
 	"displayName": "%displayName%",
 	"description": "%description%",
 	"version": "1.0.0",
@@ -14,16 +14,16 @@
 	"contributes": {
 		"themes": [
 			{
-				"id": "DevPulse Dark",
-				"label": "%devpulseDarkLabel%",
+				"id": "DevForge Teal",
+				"label": "%devforgeTealLabel%",
 				"uiTheme": "vs-dark",
-				"path": "./themes/devpulse_dark.json"
+				"path": "./themes/devforge_teal.json"
 			},
 			{
-				"id": "DevPulse Vibrant",
-				"label": "%devpulseVibrantLabel%",
+				"id": "DevForge Tokyo",
+				"label": "%devforgeTokyoLabel%",
 				"uiTheme": "vs-dark",
-				"path": "./themes/devpulse_vibrant.json"
+				"path": "./themes/devforge_tokyo.json"
 			}
 		]
 	}

@@ -1,7 +1,7 @@
 {
 	"name": "devpulse-hub",
-	"displayName": "DevPulse Hub",
-	"description": "DevPulse orchestration, status bar, and walkthrough",
+	"displayName": "DevForge Hub",
+	"description": "DevForge orchestration, status bar, and walkthrough",
 	"version": "1.0.0",
 	"publisher": "jesse-hall",
 	"license": "MIT",
@@ -21,14 +21,14 @@
 		],
 		"walkthroughs": [
 			{
-				"id": "devpulseWelcome",
-				"title": "Welcome to DevPulse",
-				"description": "Your dedicated vibe-coder IDE from RRFlow.ai.",
+				"id": "devforgeWelcome",
+				"title": "Welcome to DevForge",
+				"description": "Your dedicated vibe-coder IDE from DevPulse.",
 				"steps": [
 					{
-						"id": "meetDevpulse",
-						"title": "1. Meet DevPulse",
-						"description": "Experience the ColdLight neuromorphic design tailored for pure focus.",
+						"id": "meetDevforge",
+						"title": "1. Meet DevForge",
+						"description": "Experience the Deep Teal Tokyo Brutalist design tailored for pure focus.",
 						"media": {
 							"markdown": "welcome/meet.md"
 						}
