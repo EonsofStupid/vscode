@@ -6,7 +6,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.commands.registerCommand('devpulse.openHub', () => {
 			vscode.window.showInformationMessage('Welcome to the DevPulse Hub (stub).');
-		})
+		}),
 	);
 
 	// Setup status bar

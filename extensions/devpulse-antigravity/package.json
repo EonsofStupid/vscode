@@ -11,9 +11,6 @@
 	"extensionDependencies": [
 		"jesse-hall.devpulse-profile"
 	],
-	"activationEvents": [
-		"onCommand:devpulse.antigravity.launch"
-	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [

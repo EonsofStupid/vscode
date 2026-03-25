@@ -196,7 +196,7 @@
     "gulp-replace": "^0.5.4",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svgmin": "^4.1.0",
-    "lefthook": "^3.4.11",
+    "lefthook": "^2.1.4",
     "@biomejs/biome": "^1.6.4",
     "innosetup": "^6.4.1",
     "istanbul-lib-coverage": "^3.2.0",

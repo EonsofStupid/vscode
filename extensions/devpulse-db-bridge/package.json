@@ -8,9 +8,6 @@
 	"engines": {
 		"vscode": "^1.85.0"
 	},
-	"activationEvents": [
-		"onCommand:devpulse.connectDB"
-	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [

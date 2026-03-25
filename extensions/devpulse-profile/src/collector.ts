@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { IDevProfile } from './types';
+import type { IDevProfile } from './types';
 
 export class ProfileCollector {
 	private profile: IDevProfile;
@@ -12,20 +12,20 @@ export class ProfileCollector {
 			preferences: {
 				isRusher: false,
 				usesMindMaps: true,
-				readsDocs: false
-			}
+				readsDocs: false,
+			},
 		};
 	}
 
 	public start(context: vscode.ExtensionContext) {
 		// Mock telemetry collection
 		context.subscriptions.push(
-			vscode.window.onDidChangeActiveTextEditor(e => {
-				if (e && e.document) {
+			vscode.window.onDidChangeActiveTextEditor((e) => {
+				if (e?.document) {
 					const lang = e.document.languageId;
 					this.profile.languageDistribution[lang] = (this.profile.languageDistribution[lang] || 0) + 1;
 				}
-			})
+			}),
 		);
 	}
 

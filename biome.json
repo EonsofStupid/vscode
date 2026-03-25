@@ -1,5 +1,5 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.6.4/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.4.8/schema.json",
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
@@ -20,7 +20,7 @@
 		}
 	},
 	"files": {
-		"include": [
+		"includes": [
 			"extensions/devpulse-hub/**",
 			"extensions/devpulse-db-bridge/**",
 			"extensions/devpulse-clyffy/**",
