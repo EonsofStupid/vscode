@@ -14,7 +14,7 @@
 	"contributes": {
 		"themes": [
 			{
-				"id": "DevForge Teal",
+				"id": "DevForge Tokyo Abyss",
 				"label": "%devforgeTealLabel%",
 				"uiTheme": "vs-dark",
 				"path": "./themes/devforge_teal.json"
