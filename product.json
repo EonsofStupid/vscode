@@ -83,6 +83,26 @@
 			}
 		}
 	],
+	"defaultChatAgent": {
+		"extensionId": "GitHub.copilot",
+		"chatExtensionId": "GitHub.copilot-chat",
+		"provider": {
+			"default": {
+				"id": "github",
+				"name": "GitHub"
+			},
+			"enterprise": {
+				"id": "github-enterprise",
+				"name": "GitHub Enterprise"
+			}
+		},
+		"providerScopes": [],
+		"entitlementUrl": "",
+		"tokenEntitlementUrl": "",
+		"mcpRegistryDataUrl": "",
+		"completionsAdvancedSetting": "github.copilot.advanced",
+		"providerUriSetting": ""
+	},
 	"trustedExtensionAuthAccess": {
 		"github": [
 			"GitHub.copilot-chat"
