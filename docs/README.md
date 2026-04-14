@@ -12,6 +12,7 @@ Canonical documentation for **[DevForge](https://github.com/EonsofStupid/devforg
 | [TEAM.md](TEAM.md) | Internal team | Conventions, branches, secrets, review expectations |
 | [AI-CONTEXT.md](AI-CONTEXT.md) | AI coding agents | Repo-specific tasks, scripts, guardrails |
 | [WIKI.md](WIKI.md) | Maintainer | How this folder maps to GitHub Wiki (optional mirror) |
+| [RELEASE.md](RELEASE.md) | Maintainer | Push to `devforge`, first-time `--force-with-lease`, tags, release URLs |
 
 ## GitHub Wiki
 
