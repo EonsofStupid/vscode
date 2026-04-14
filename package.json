@@ -78,6 +78,11 @@
     "install-local-component-explorer": "npm install ../vscode-packages/js-component-explorer/dist/vscode-component-explorer-0.1.0.tgz ../vscode-packages/js-component-explorer/dist/vscode-component-explorer-cli-0.1.0.tgz --no-save && cd build/vite && npm install ../../../vscode-packages/js-component-explorer/dist/vscode-component-explorer-vite-plugin-0.1.0.tgz --no-save",
     "symlink-local-component-explorer": "npm install ../vscode-packages/js-component-explorer/packages/explorer ../vscode-packages/js-component-explorer/packages/cli --no-save && cd build/vite && npm install ../../../vscode-packages/js-component-explorer/packages/vite-plugin ../../../vscode-packages/js-component-explorer/packages/explorer --no-save",
     "install-latest-component-explorer": "npm install @vscode/component-explorer@next @vscode/component-explorer-cli@next && cd build/vite && npm install @vscode/component-explorer-vite-plugin@next && npm install @vscode/component-explorer@next",
+    "devforge:verify": "node scripts/devforge-orchestrator.mjs",
+    "devforge:capture": "node scripts/devforge-orchestrator.mjs --capture",
+    "devforge:electron-hint": "node scripts/devforge-orchestrator.mjs --electron-hint",
+    "devforge:serve": "node scripts/devforge-serve.mjs",
+    "devforge:serve:verbose": "node scripts/devforge-serve-verbose.mjs",
     "biome:check": "biome check extensions/devpulse-hub extensions/devpulse-db-bridge extensions/devpulse-clyffy extensions/devpulse-antigravity extensions/devpulse-profile extensions/theme-devpulse",
     "biome:fix": "biome check --write extensions/devpulse-hub extensions/devpulse-db-bridge extensions/devpulse-clyffy extensions/devpulse-antigravity extensions/devpulse-profile extensions/theme-devpulse"
   },

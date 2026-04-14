@@ -1,0 +1,51 @@
+# Creates a GitHub Release when a SemVer tag v*.*.* is pushed.
+# Attaches manifest.json so DevPulse / CI can curl the release asset URL for version + source archives.
+
+name: DevForge release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Write manifest.json
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          VERSION="${TAG#v}"
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if [ "$VERSION" != "$PKG_VERSION" ]; then
+            echo "::warning::Tag version $VERSION differs from package.json version $PKG_VERSION"
+          fi
+          REPO="${{ github.repository }}"
+          cat > manifest.json <<EOF
+          {
+            "schema": 1,
+            "product": "devforge",
+            "version": "${VERSION}",
+            "tag": "${TAG}",
+            "repository": "https://github.com/${REPO}",
+            "releaseUrl": "https://github.com/${REPO}/releases/tag/${TAG}",
+            "sourceZipUrl": "https://github.com/${REPO}/archive/refs/tags/${TAG}.zip",
+            "sourceTarballUrl": "https://github.com/${REPO}/archive/refs/tags/${TAG}.tar.gz",
+            "notes": "Prebuilt reh-web zips can be added as release assets when CI packaging lands; until then builds clone or fetch the source archive by tag."
+          }
+          EOF
+          cat manifest.json
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: manifest.json
+          generate_release_notes: true
+          fail_on_unmatched_files: false
