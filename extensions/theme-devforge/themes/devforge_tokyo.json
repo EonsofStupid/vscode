@@ -1,0 +1,14 @@
+{
+	"$schema": "vscode://schemas/color-theme",
+	"name": "DevForge Tokyo",
+	"include": "./devforge_teal.json",
+	"type": "dark",
+	"colors": {
+		"activityBar.background": "#05131C",
+		"statusBar.background": "#05131C",
+		"titleBar.activeBackground": "#05131C",
+		"titleBar.inactiveBackground": "#05131C",
+		"editor.background": "#091F2C",
+		"sideBar.background": "#091F2C"
+	}
+}

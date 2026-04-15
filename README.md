@@ -1,4 +1,7 @@
 # Visual Studio Code - Open Source ("Code - OSS")
+
+> **DevForge** — This fork is maintained as **[DevForge](https://github.com/EonsofStupid/devforge)** (by DevPulse). Product docs, roadmap, DevPulse update channel, and changelog: **[`docs/README.md`](docs/README.md)** · **[`CHANGELOG.md`](CHANGELOG.md)**. The Microsoft README and links below describe upstream Code OSS.
+
 [![Feature Requests](https://img.shields.io/github/issues/microsoft/vscode/feature-request.svg)](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
 [![Bugs](https://img.shields.io/github/issues/microsoft/vscode/bug.svg)](https://github.com/microsoft/vscode/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3Abug)
 [![Gitter](https://img.shields.io/badge/chat-on%20gitter-yellow.svg)](https://gitter.im/Microsoft/vscode)

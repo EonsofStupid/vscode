@@ -318,7 +318,8 @@ export class ChatEntitlementService extends Disposable implements IChatEntitleme
 		);
 		this.sentimentObs = observableFromEvent(this.onDidChangeSentiment, () => this.sentiment);
 
-		if ((isWeb && !environmentService.remoteAuthority)) {
+		// OSS web (e.g. code-server on localhost) hides Copilot setup by default. DevForge serves web + server as a first-class product.
+		if (isWeb && !environmentService.remoteAuthority && productService.urlProtocol !== 'devforge') {
 			ChatEntitlementContextKeys.Setup.hidden.bindTo(this.contextKeyService).set(true); // hide copilot UI on web if unsupported
 			return;
 		}

@@ -1,0 +1,8 @@
+pre-commit:
+  parallel: true
+  commands:
+    hygiene:
+      run: node --experimental-strip-types build/hygiene.ts
+    biome-format:
+      glob: "extensions/devpulse-*/**/*.{ts,json}"
+      run: npx biome check --write {staged_files}

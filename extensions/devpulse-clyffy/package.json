@@ -1,0 +1,51 @@
+{
+	"name": "devpulse-clyffy",
+	"displayName": "DevPulse Clyffy AI Overlay",
+	"description": "Internal AI that teaches real dev practices for DevPulse",
+	"version": "1.0.0",
+	"publisher": "jesse-hall",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"extensionDependencies": [
+		"jesse-hall.devpulse-profile"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "devpulse.clyffy.teach",
+				"title": "Ask Clyffy"
+			},
+			{
+				"command": "devpulse.toggleOverlay",
+				"title": "Toggle AI Overlay"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Clyffy AI Setup",
+			"properties": {
+				"devpulse.overlay.url": {
+					"type": "string",
+					"default": "http://localhost:1420",
+					"description": "Tauri/Svelte overlay frontend URL"
+				},
+				"devpulse.clyffy.mode": {
+					"type": "string",
+					"enum": [
+						"beginner",
+						"intermediate",
+						"advanced"
+					],
+					"default": "beginner",
+					"description": "Clyffy teaching strictness level"
+				}
+			}
+		}
+	}
+}

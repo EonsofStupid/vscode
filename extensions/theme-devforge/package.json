@@ -1,0 +1,30 @@
+{
+	"name": "theme-devforge",
+	"displayName": "%displayName%",
+	"description": "%description%",
+	"version": "1.0.0",
+	"publisher": "jesse-hall",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"id": "DevForge Tokyo Abyss",
+				"label": "%devforgeTealLabel%",
+				"uiTheme": "vs-dark",
+				"path": "./themes/devforge_teal.json"
+			},
+			{
+				"id": "DevForge Tokyo",
+				"label": "%devforgeTokyoLabel%",
+				"uiTheme": "vs-dark",
+				"path": "./themes/devforge_tokyo.json"
+			}
+		]
+	}
+}

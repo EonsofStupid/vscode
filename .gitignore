@@ -3,8 +3,10 @@
 npm-debug.log
 Thumbs.db
 node_modules/
+.local_deps/
 .build/
 .vscode/extensions/**/out/
+.vscode/devforge-verify/
 extensions/**/dist/
 src/vs/base/browser/ui/codicons/codicon/codicon.ttf
 /out*/
@@ -48,3 +50,4 @@ dist
 .agents/skills/.local/
 .claude/skills/.local/
 .github/skills/.local/
+extensions/github-authentication/src/config.ts

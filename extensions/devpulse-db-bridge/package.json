@@ -1,0 +1,41 @@
+{
+	"name": "devpulse-db-bridge",
+	"displayName": "DevPulse Database Bridge",
+	"description": "SurrealDB, libSQL, and DuckDB connectivity for DevPulse",
+	"version": "1.0.0",
+	"publisher": "jesse-hall",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.85.0"
+	},
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "devpulse.connectDB",
+				"title": "Connect Database"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "DevPulse DB Configuration",
+			"properties": {
+				"devpulse.surrealdb.endpoint": {
+					"type": "string",
+					"default": "ws://localhost:8000/rpc",
+					"description": "SurrealDB WebSocket RPC Endpoint"
+				},
+				"devpulse.libsql.endpoint": {
+					"type": "string",
+					"default": "http://localhost:8080",
+					"description": "libSQL HTTP Endpoint"
+				},
+				"devpulse.duckdb.wasmPath": {
+					"type": "string",
+					"default": "",
+					"description": "DuckDB WASM bundle path"
+				}
+			}
+		}
+	}
+}
