@@ -1,7 +1,7 @@
 # Creates a GitHub Release when a version tag is pushed, or manually for an existing tag.
 # Attaches manifest.json for DevPulse / CI.
 #
-# Tag patterns: GitHub uses glob/fnmatch, NOT regex. Use v* (not v[0-9]+...).
+# Tag patterns: GitHub uses glob/fnmatch, NOT regex — use v* (not v[0-9]+...).
 
 name: DevForge release
 
@@ -19,20 +19,52 @@ on:
 permissions:
   contents: write
 
+env:
+  # Use Node 24 for JS actions until runner default flips (see GitHub changelog).
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: Resolve git ref and tag label
+        id: meta
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          GIT_REF: ${{ github.ref }}
+          GIT_REF_NAME: ${{ github.ref_name }}
+          INPUT_TAG: ${{ github.event.inputs.tag }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            TAG="$(echo -n "$INPUT_TAG" | tr -d '[:space:]')"
+            if [[ "$TAG" != v* ]]; then
+              echo "::error::Tag must start with v (got: $TAG)"
+              exit 1
+            fi
+            echo "ref=refs/tags/${TAG}" >> "$GITHUB_OUTPUT"
+            echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=${GIT_REF}" >> "$GITHUB_OUTPUT"
+            echo "tag=${GIT_REF_NAME}" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Resolved ref=$(grep '^ref=' "$GITHUB_OUTPUT" | cut -d= -f2-)"
+
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
-          # workflow_dispatch: github.ref is default branch — must checkout the tag explicitly.
-          ref: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
+          # Full ref avoids ambiguous short refs; workflow_dispatch must not use default-branch SHA only.
+          ref: ${{ steps.meta.outputs.ref }}
+          fetch-depth: 1
+          lfs: false
 
       - name: Write manifest.json
         env:
-          TAG: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
+          TAG: ${{ steps.meta.outputs.tag }}
+        shell: bash
         run: |
+          set -euo pipefail
           VERSION="${TAG#v}"
           PKG_VERSION=$(node -p "require('./package.json').version")
           if [ "$VERSION" != "$PKG_VERSION" ]; then
@@ -55,9 +87,9 @@ jobs:
           cat manifest.json
 
       - name: Publish GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
+          tag_name: ${{ steps.meta.outputs.tag }}
           files: manifest.json
           generate_release_notes: true
           fail_on_unmatched_files: false
