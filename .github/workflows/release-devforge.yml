@@ -1,12 +1,20 @@
-# Creates a GitHub Release when a SemVer tag v*.*.* is pushed.
-# Attaches manifest.json so DevPulse / CI can curl the release asset URL for version + source archives.
+# Creates a GitHub Release when a version tag is pushed, or manually for an existing tag.
+# Attaches manifest.json for DevPulse / CI.
+#
+# Tag patterns: GitHub uses glob/fnmatch, NOT regex. Use v* (not v[0-9]+...).
 
 name: DevForge release
 
 on:
   push:
     tags:
-      - 'v[0-9]+.[0-9]+.[0-9]*'
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to publish (e.g. v1.112.0)'
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -17,10 +25,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # workflow_dispatch: github.ref is default branch — must checkout the tag explicitly.
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
 
       - name: Write manifest.json
         env:
-          TAG: ${{ github.ref_name }}
+          TAG: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
         run: |
           VERSION="${TAG#v}"
           PKG_VERSION=$(node -p "require('./package.json').version")
@@ -46,6 +57,7 @@ jobs:
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
           files: manifest.json
           generate_release_notes: true
           fail_on_unmatched_files: false

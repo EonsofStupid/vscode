@@ -36,9 +36,14 @@ git tag -a v1.112.0 -m "DevForge 1.112.0"
 git push devforge v1.112.0
 ```
 
-3. **GitHub Actions** — Pushing `v*.*.*` runs `.github/workflows/release-devforge.yml`, which creates a **GitHub Release** and attaches **`manifest.json`**.
+3. **GitHub Actions** — Pushing a tag matching **`v*`** (glob, not regex) runs `.github/workflows/release-devforge.yml`, which creates a **GitHub Release** and attaches **`manifest.json`**.
 
 4. **CHANGELOG** — Copy the section for that version into the release description if you want parity with [CHANGELOG.md](../CHANGELOG.md).
+
+### No release appeared?
+
+- **Tag pattern:** GitHub workflow `tags:` filters use **glob** patterns. A regex like `v[0-9]+.*` does **not** match `v1.112.0` and the workflow will **never** run.
+- **Tag already pushed:** Re-push does not re-trigger. Use **Actions → DevForge release → Run workflow** and enter the tag (e.g. `v1.112.0`) — requires the fixed workflow on **`main`** first.
 
 ## URLs for DevPulse / CI (after the first tagged release)
 
